@@ -20,9 +20,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
     <meta name="theme-color" content="#D4A59A">
     <meta property="og:title" content="PAD'OR - Natural Skincare in Lebanon">
-<meta property="og:description" content="Shop our luxurious lotions, scrubs, and tanning oils. Cash on delivery across Lebanon.">
-<meta property="og:image" content="https://yourdomain.com/img/lotion.png">
-<meta property="og:type" content="website">
+    <meta property="og:description" content="Shop our luxurious lotions, scrubs, and tanning oils. Cash on delivery across Lebanon.">
+    <meta property="og:image" content="https://yourdomain.com/img/lotion.png">
+    <meta property="og:type" content="website">
 
     <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'" />
     <noscript>
@@ -1359,59 +1359,71 @@
         img.lazy {
             opacity: 0;
         }
+
         /* MOBILE STICKY CHECKOUT BAR */
-.mobile-checkout-bar{
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 12px;
-  background: linear-gradient(90deg, rgba(255,255,255,0.98), rgba(255,255,255,0.92));
-  border-top: 1px solid rgba(0,0,0,0.06);
-  box-shadow: 0 -8px 24px rgba(0,0,0,0.08);
-  transform: translateY(110%);
-  transition: transform 0.28s ease, opacity 0.28s ease;
-  opacity: 0;
-  z-index: 1200;
-  padding-left: env(safe-area-inset-left,12px);
-  padding-right: env(safe-area-inset-right,12px);
-  -webkit-backdrop-filter: blur(6px);
-  backdrop-filter: blur(6px);
-}
-.mobile-checkout-bar.visible{
-  transform: translateY(0);
-  opacity: 1;
-}
-.mobile-checkout-bar .mobile-checkout-left{
-  font-size: 14px;
-  color: var(--text);
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-.mobile-checkout-bar .mobile-checkout-actions{
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-.mobile-checkout-bar .btn-outline{
-  padding: 8px 12px;
-  border-radius: 8px;
-}
-.mobile-checkout-bar .btn{
-  padding: 8px 14px;
-  border-radius: 8px;
-}
+        .mobile-checkout-bar {
+            position: fixed;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px;
+            padding-bottom: calc(12px + env(safe-area-inset-bottom, 8px));
+            /* ✅ adds safe padding */
+            background: linear-gradient(90deg, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.92));
+            border-top: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.08);
+            transform: translateY(110%);
+            transition: transform 0.28s ease, opacity 0.28s ease;
+            opacity: 0;
+            z-index: 1200;
+            -webkit-backdrop-filter: blur(6px);
+            backdrop-filter: blur(6px);
+        }
 
-/* hide on desktop */
-@media (min-width: 769px){
-  .mobile-checkout-bar { display: none !important; }
-}
+        .mobile-checkout-bar.visible {
+            transform: translateY(0);
+            opacity: 1;
+        }
 
+        .mobile-checkout-bar .mobile-checkout-left {
+            font-size: 14px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mobile-checkout-bar .mobile-checkout-actions {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+
+        .mobile-checkout-bar .btn-outline {
+            padding: 6px 10px;
+            font-size: 14px;
+            line-height: 1.4;
+            border-radius: 6px;
+        }
+
+        .mobile-checkout-bar .btn {
+            padding: 6px 12px;
+            font-size: 14px;
+            line-height: 1.4;
+            border-radius: 6px;
+        }
+
+
+        /* hide on desktop */
+        @media (min-width: 769px) {
+            .mobile-checkout-bar {
+                display: none !important;
+            }
+        }
     </style>
     <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <script type="application/ld+json">
@@ -1886,15 +1898,15 @@
         </div>
     </div>
     <!-- MOBILE STICKY CHECKOUT BAR -->
-<div id="mobileCheckoutBar" class="mobile-checkout-bar" aria-hidden="true">
-  <div class="mobile-checkout-left">
-    <strong class="mobile-cart-count">0</strong> items • <span class="mobile-cart-subtotal">$0.00</span>
-  </div>
-  <div class="mobile-checkout-actions">
-    <button id="mobileViewCartBtn" class="btn btn-outline">View Cart</button>
-    <button id="mobileCheckoutBtn" class="btn">Checkout</button>
-  </div>
-</div>
+    <div id="mobileCheckoutBar" class="mobile-checkout-bar" aria-hidden="true">
+        <div class="mobile-checkout-left">
+            <strong class="mobile-cart-count">0</strong> items • <span class="mobile-cart-subtotal">$0.00</span>
+        </div>
+        <div class="mobile-checkout-actions">
+            <button id="mobileViewCartBtn" class="btn btn-outline">View Cart</button>
+            <button id="mobileCheckoutBtn" class="btn">Checkout</button>
+        </div>
+    </div>
 
     <script>
         // ** IMPORTANT: REPLACE THIS URL with your own Google Apps Script Web App URL **
@@ -1976,8 +1988,8 @@
             });
 
             updateOrderSummary(subtotal);
-updateCartCount();
-updateMobileCheckoutBar(); // NEW: update sticky mobile bar
+            updateCartCount();
+            updateMobileCheckoutBar(); // NEW: update sticky mobile bar
 
 
             // Add event listeners for new buttons
@@ -2446,54 +2458,55 @@ updateMobileCheckoutBar(); // NEW: update sticky mobile bar
         });
 
         /* ===== MOBILE STICKY CHECKOUT BAR ===== */
-function updateMobileCheckoutBar() {
-  const bar = document.getElementById('mobileCheckoutBar');
-  if (!bar) return;
-  const countEl = bar.querySelector('.mobile-cart-count');
-  const subtotalEl = bar.querySelector('.mobile-cart-subtotal');
-  const count = cartItems.reduce((acc, it) => acc + it.quantity, 0);
-  const subtotal = cartItems.reduce((acc, it) => acc + it.price * it.quantity, 0);
-  countEl.textContent = count;
-  subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
-  if (count > 0) {
-    bar.classList.add('visible');
-    bar.setAttribute('aria-hidden', 'false');
-  } else {
-    bar.classList.remove('visible');
-    bar.setAttribute('aria-hidden', 'true');
-  }
-}
+        function updateMobileCheckoutBar() {
+            const bar = document.getElementById('mobileCheckoutBar');
+            if (!bar) return;
+            const countEl = bar.querySelector('.mobile-cart-count');
+            const subtotalEl = bar.querySelector('.mobile-cart-subtotal');
+            const count = cartItems.reduce((acc, it) => acc + it.quantity, 0);
+            const subtotal = cartItems.reduce((acc, it) => acc + it.price * it.quantity, 0);
+            countEl.textContent = count;
+            subtotalEl.textContent = `$${subtotal.toFixed(2)}`;
+            if (count > 0) {
+                bar.classList.add('visible');
+                bar.setAttribute('aria-hidden', 'false');
+            } else {
+                bar.classList.remove('visible');
+                bar.setAttribute('aria-hidden', 'true');
+            }
+        }
 
-document.addEventListener('DOMContentLoaded', function () {
-  const viewBtn = document.getElementById('mobileViewCartBtn');
-  const checkoutBtn = document.getElementById('mobileCheckoutBtn');
+        document.addEventListener('DOMContentLoaded', function() {
+            const viewBtn = document.getElementById('mobileViewCartBtn');
+            const checkoutBtn = document.getElementById('mobileCheckoutBtn');
 
-  if (viewBtn) {
-    viewBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      cartModal.style.display = 'flex';
-      renderCart();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  }
+            if (viewBtn) {
+                viewBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    cartModal.style.display = 'flex';
+                    renderCart();
+                    window.scrollTo({
+                        top: 0,
+                        behavior: 'smooth'
+                    });
+                });
+            }
 
-  if (checkoutBtn) {
-    checkoutBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      cartModal.style.display = 'flex';
-      renderCart();
-      setTimeout(() => {
-        const nameInput = document.getElementById('customerNameInput');
-        if (nameInput) nameInput.focus();
-      }, 250);
-    });
-  }
+            if (checkoutBtn) {
+                checkoutBtn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    cartModal.style.display = 'flex';
+                    renderCart();
+                    setTimeout(() => {
+                        const nameInput = document.getElementById('customerNameInput');
+                        if (nameInput) nameInput.focus();
+                    }, 250);
+                });
+            }
 
-  // Initial update
-  updateMobileCheckoutBar();
-});
-
-
+            // Initial update
+            updateMobileCheckoutBar();
+        });
     </script>
 </body>
 
